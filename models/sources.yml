@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+    - name: sales_source
+      description: "Raw sales Data"
+
+      database: sales
+      schema: source
+
+      tables:
+        - name: customer
+          description: "Raw customer table"
+
+          columns:
+            - name: customer_id
+              description: 'Unique customer identifier'
+              data_tests:
+                - unique
+                - not_null
+
+
+        - name: orders
+          description: "Raw orders table"
+
+
+          columns:
+            - name: order_id
+              description: 'Unique order identifier'
+              data_tests:
+                - unique
+                -  not_null
+
+            - name: customer_id
+              description: "Customer who placed the order"
+              data_tests:
+                - not_null
